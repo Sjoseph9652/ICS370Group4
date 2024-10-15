@@ -31,6 +31,10 @@ public class AddMealController
         Meal placeholder = new Meal(name, calorie, protein, fats, carbs);
         Meal.mealList.add(placeholder);
         System.out.println("Added Meal!");
+
+        FXMLLoader fxmlLoader = new FXMLLoader(MealMotiveApplication.class.getResource("main-menu.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 450);
+        MealMotiveApplication.getStage().setScene(scene);
     }
     
     public void onBackButtonClick() throws IOException

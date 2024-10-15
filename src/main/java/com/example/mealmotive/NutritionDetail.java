@@ -3,6 +3,7 @@ package com.example.mealmotive;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ public class NutritionDetail
 {
 
     public Button backButton;
+    public Text nutritionText;
 
     /*
      * Takes the users ArrayList of meals.
@@ -32,32 +34,39 @@ public class NutritionDetail
         double proteinRatio = (double)totalProteins / totalNutrients * 100;
         double fatRatio = (double)totalFats / totalNutrients * 100;
         double carbRatio = (double)totalCarbs / totalNutrients * 100;
+        String textTracker = "";
 
         if(proteinRatio < 10)
         {
-            System.out.println(proteinRatio + " % Of your calories was made up of protein. Consider more protein dense foods.");
+            textTracker = nutritionText.getText();
+            nutritionText.setText(textTracker + Math.floor(proteinRatio) + " % Of your calories was made up of protein. Consider more protein dense foods. \n");
         }
         else if(proteinRatio > 35)
         {
-            System.out.println(proteinRatio + " % Of your calories was made up of protein. Consider less protein dense foods.");
+            textTracker = nutritionText.getText();
+            nutritionText.setText(textTracker + Math.floor(proteinRatio) + " % Of your calories was made up of protein. Consider less protein dense foods. \n");
         }
 
         if(fatRatio < 25)
         {
-            System.out.println(fatRatio + " % Of your calories was made up of fat. Consider more fat dense foods.");
+            textTracker = nutritionText.getText();
+            nutritionText.setText(textTracker + Math.floor(fatRatio) + " % Of your calories was made up of fat. Consider more fat dense foods. \n");
         }
         else if(fatRatio > 35)
         {
-            System.out.println(fatRatio + " % Of your calories was made up of fat. Consider less fat dense foods.");
+            textTracker = nutritionText.getText();
+            nutritionText.setText(textTracker + Math.floor(fatRatio) + " % Of your calories was made up of fat. Consider less fat dense foods. \n");
         }
 
         if(carbRatio < 45)
         {
-            System.out.println(carbRatio + " % Of your calories was made up of carbs. Consider more carbs.");
+            textTracker = nutritionText.getText();
+            nutritionText.setText(textTracker + Math.floor(carbRatio) + " % Of your calories was made up of carbs. Consider more carbs. \n");
         }
         else if(carbRatio > 65)
         {
-            System.out.println(carbRatio + " % Of your calories was made up of carb. Consider less carbs.");
+            textTracker = nutritionText.getText();
+            nutritionText.setText(textTracker + Math.floor(carbRatio) + " % Of your calories was made up of carbs. Consider less carbs. \n");
         }
     }
 

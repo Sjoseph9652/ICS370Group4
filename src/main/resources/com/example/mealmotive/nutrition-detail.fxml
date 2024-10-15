@@ -14,6 +14,9 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Text fx:id="nutritionText" layoutX="53.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="148.13671875" />
+      <Text fx:id="nutritionText" layoutX="24.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="529.13671875">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
    </children>
 </AnchorPane>

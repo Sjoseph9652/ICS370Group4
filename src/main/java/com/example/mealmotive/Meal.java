@@ -49,6 +49,6 @@ public class Meal
 
     public String toString()
     {
-        return "\n name= " + name + " \n calories=" + calories + " \n proteins=" + proteins + " \n fats=" + fats + " \n carbs=" + carbs + "\n";
+        return "\n name " + name + " \n calories " + calories + " \n proteins " + proteins + " \n fats " + fats + " \n carbs " + carbs + "\n";
     }
 }
