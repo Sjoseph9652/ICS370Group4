@@ -14,7 +14,10 @@ public class MealHistoryController
 
     @FXML
     Text foodHistoryText;
-
+    /*
+    Takes meal class array list
+    Prints meal information to Text in the GUI
+     */
     public void showMealHistory()
     {
         StringBuilder mealHistory = new StringBuilder();

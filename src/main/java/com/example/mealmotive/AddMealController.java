@@ -19,6 +19,10 @@ public class AddMealController
     public TextField carbsTextField;
     public Button addButton;
 
+    /*
+    Takes user information based on meal
+    adds inputted meal to the meal ArrayList
+    */
     @FXML
     protected void onAddButtonClicked() throws IOException
     {
