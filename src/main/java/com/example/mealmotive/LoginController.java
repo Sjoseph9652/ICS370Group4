@@ -13,9 +13,11 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+import static com.example.mealmotive.AccountController.getUsers;
+
 public class LoginController
 {
-    private static String path = "meal.json";
+    private static String path = "user.json";
     static Gson gson = new Gson();
 
     @FXML
@@ -25,12 +27,13 @@ public class LoginController
 
     @FXML
     protected void onSubmitButtonClick() throws IOException {
-        String username = usernameTextField.getText();
-        String password = passwordTextField.getText();
+        String username = usernameTextField.getText().trim(); // whitespace in username
+        String password = passwordTextField.getText().trim();
         System.out.println(username);
         System.out.println(password);
 
         User.userList = loadUsers();
+        System.out.println(User.userList);
 
         for (User i : User.userList)
         {
@@ -39,7 +42,6 @@ public class LoginController
                 FXMLLoader fxmlLoader = new FXMLLoader(MealMotiveApplication.class.getResource("main-menu.fxml"));
                 Scene scene = new Scene(fxmlLoader.load(), 800, 450);
                 MealMotiveApplication.getStage().setScene(scene);
-
             }
             else
             {
@@ -48,18 +50,9 @@ public class LoginController
         }
     }
 
-
     public static ArrayList<User> loadUsers()
     {
-        try(FileReader fr = new FileReader(path))
-        {
-            Type listType = new TypeToken<ArrayList<User>>() {}.getType();
-            ArrayList<User> list = gson.fromJson(fr, listType);
-            return (list != null) ? list : new ArrayList<>(); // returns new array list if the json is empty
-        } catch (IOException e)
-        {
-            return new ArrayList<>();
-        }
+        return getUsers(path, gson);
     }
 
 }

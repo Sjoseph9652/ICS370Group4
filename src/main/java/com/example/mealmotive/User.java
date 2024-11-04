@@ -46,4 +46,16 @@ public class User
         return weight;
     }
 
+    @Override
+    public String toString()
+    {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", height=" + height +
+                ", weight=" + weight +
+                '}';
+    }
 }

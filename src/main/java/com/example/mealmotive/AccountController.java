@@ -48,6 +48,10 @@ public class AccountController
 
     public static ArrayList<User> loadUsers()
     {
+        return getUsers(path, gson);
+    }
+
+    static ArrayList<User> getUsers(String path, Gson gson) {
         try(FileReader fr = new FileReader(path))
         {
             Type listType = new TypeToken<ArrayList<User>>() {}.getType();
