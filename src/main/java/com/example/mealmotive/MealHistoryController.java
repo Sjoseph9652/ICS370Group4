@@ -1,32 +1,47 @@
 package com.example.mealmotive;
+import com.google.gson.Gson;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 
 public class MealHistoryController
 {
     @FXML
     public Button backButton;
-
     @FXML
     Text foodHistoryText;
+    Gson gson = new Gson();
+
     /*
     Takes meal class array list
     Prints meal information to Text in the GUI
      */
     public void showMealHistory()
     {
-        StringBuilder mealHistory = new StringBuilder();
+        try
+        {
+            FileReader fr = new FileReader("meal.json");
+            //Meal addedMeal = gson.fromJson(fr, Meal.class);
+            //foodHistoryText.setText(gson.toJson(addedMeal));
+        } catch (FileNotFoundException e)
+        {
+            throw new RuntimeException(e);
+        }
+
+
+        /*StringBuilder mealHistory = new StringBuilder();
 
         for (Meal i : Meal.mealList)
         {
             mealHistory.append(i.toString()).append("\n");
         }
-        foodHistoryText.setText(mealHistory.toString());
+        foodHistoryText.setText(mealHistory.toString());*/
     }
 
     public void onBackButtonClick() throws IOException

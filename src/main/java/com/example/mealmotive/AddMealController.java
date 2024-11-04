@@ -1,11 +1,13 @@
 package com.example.mealmotive;
 
+import com.google.gson.Gson;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import java.io.FileWriter;
 import java.util.*;
 import java.io.IOException;
 
@@ -18,6 +20,7 @@ public class AddMealController
     public TextField fatTextField;
     public TextField carbsTextField;
     public Button addButton;
+    Gson gson = new Gson();
 
     /*
     Takes user information based on meal
@@ -34,7 +37,17 @@ public class AddMealController
 
         Meal placeholder = new Meal(name, calorie, protein, fats, carbs);
         Meal.mealList.add(placeholder);
-        System.out.println("Added Meal!");
+
+        try
+        {
+            String myJson = gson.toJson(placeholder);
+            FileWriter fw = new FileWriter("meal.json");
+            gson.toJson(myJson, fw);
+            fw.close();
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
 
         FXMLLoader fxmlLoader = new FXMLLoader(MealMotiveApplication.class.getResource("main-menu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 450);

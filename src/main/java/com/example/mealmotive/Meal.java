@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Meal
 {
-    private String name;
-    private int calories;
-    private int proteins;
-    private int fats;
-    private int carbs;
+    public String name;
+    public int calories;
+    public int proteins;
+    public int fats;
+    public int carbs;
 
     public static List<Meal> mealList = new ArrayList<>();
 
