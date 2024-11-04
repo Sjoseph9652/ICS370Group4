@@ -1,5 +1,5 @@
 package com.example.mealmotive;
-import com.google.gson.Gson;
+import com.google.gson.Gson; //install using maven
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
