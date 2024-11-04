@@ -7,6 +7,7 @@ public class User
     public String username;
     private double height;
     private double weight;
+    public Goal goal;
 
     public User(String fname, String lName, String uname, double height, double weight)
     {
