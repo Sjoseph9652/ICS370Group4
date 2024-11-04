@@ -1,11 +1,15 @@
 package com.example.mealmotive;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
+import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class NutritionDetail
@@ -13,6 +17,8 @@ public class NutritionDetail
 
     public Button backButton;
     public Text nutritionText;
+    static Gson gson = new Gson();
+    private static String path = "meal.json";
 
     /*
      * Takes the users ArrayList of meals.
@@ -24,12 +30,16 @@ public class NutritionDetail
         int totalProteins = 0;
         int totalFats = 0;
         int totalCarbs = 0;
+
+        Meal.mealList = loadMeals();
+
         for(Meal i : meals)
         {
-            totalProteins += i.getProteins();
-            totalFats += i.getFats();
-            totalCarbs += i.getCarbs();
+            totalProteins  += (int) i.getProteins();
+            totalFats += (int) i.getFats();
+            totalCarbs += (int) i.getCarbs();
         }
+
         int totalNutrients = totalProteins + totalFats + totalCarbs;
         double proteinRatio = (double)totalProteins / totalNutrients * 100;
         double fatRatio = (double)totalFats / totalNutrients * 100;
@@ -67,6 +77,19 @@ public class NutritionDetail
         {
             textTracker = nutritionText.getText();
             nutritionText.setText(textTracker + Math.floor(carbRatio) + " % Of your calories was made up of carbs. Consider less carbs. \n");
+        }
+    }
+
+    public static ArrayList<Meal> loadMeals()
+    {
+        try(FileReader fr = new FileReader(path))
+        {
+            Type listType = new TypeToken<ArrayList<Meal>>() {}.getType();
+            ArrayList<Meal> list = gson.fromJson(fr, listType);
+            return (list != null) ? list : new ArrayList<>(); // returns new array list if the json is empty
+        } catch (IOException e)
+        {
+            return new ArrayList<>();
         }
     }
 

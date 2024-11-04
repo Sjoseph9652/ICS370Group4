@@ -16,7 +16,7 @@ public class MealMotiveApplication extends Application
     public void start(Stage stage) throws IOException
     {
         this.stage = stage;
-        FXMLLoader mainLoader = new FXMLLoader(MealMotiveApplication.class.getResource("main-menu.fxml"));
+        FXMLLoader mainLoader = new FXMLLoader(MealMotiveApplication.class.getResource("account-menu.fxml"));
         Scene scene = new Scene(mainLoader.load(), 800, 450);
         stage.setTitle("MealMotive");
         stage.setScene(scene);

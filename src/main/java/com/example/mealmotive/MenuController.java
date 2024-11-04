@@ -11,6 +11,13 @@ public class MenuController{
 
     public MealMotiveApplication main = new MealMotiveApplication();
 
+    public void onLoginButtonClick() throws IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(MealMotiveApplication.class.getResource("login-menu.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 450);
+        MealMotiveApplication.getStage().setScene(scene);
+    }
+
     public void onMealHistoryButtonCLick() throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(MealMotiveApplication.class.getResource("meal-history.fxml"));

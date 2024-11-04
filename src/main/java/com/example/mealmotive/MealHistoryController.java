@@ -1,5 +1,6 @@
 package com.example.mealmotive;
 import com.google.gson.Gson; //install using maven
+import com.google.gson.reflect.TypeToken;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,6 +10,8 @@ import javafx.scene.text.Text;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 public class MealHistoryController
 {
@@ -16,32 +19,37 @@ public class MealHistoryController
     public Button backButton;
     @FXML
     Text foodHistoryText;
-    Gson gson = new Gson();
+    static Gson gson = new Gson();
+    private static String path = "meal.json";
 
     /*
-    Takes meal class array list
+    Takes meal data from JSON folder
     Prints meal information to Text in the GUI
      */
     public void showMealHistory()
     {
-        try
-        {
-            FileReader fr = new FileReader("meal.json");
-            //Meal addedMeal = gson.fromJson(fr, Meal.class);
-            //foodHistoryText.setText(gson.toJson(addedMeal));
-        } catch (FileNotFoundException e)
-        {
-            throw new RuntimeException(e);
-        }
+        Meal.mealList = loadMeals();
 
-
-        /*StringBuilder mealHistory = new StringBuilder();
+        StringBuilder mealHistory = new StringBuilder();
 
         for (Meal i : Meal.mealList)
         {
             mealHistory.append(i.toString()).append("\n");
         }
-        foodHistoryText.setText(mealHistory.toString());*/
+        foodHistoryText.setText(mealHistory.toString());
+    }
+
+    public static ArrayList<Meal> loadMeals()
+    {
+        try(FileReader fr = new FileReader(path))
+        {
+            Type listType = new TypeToken<ArrayList<Meal>>() {}.getType();
+            ArrayList<Meal> list = gson.fromJson(fr, listType);
+            return (list != null) ? list : new ArrayList<>(); // returns new array list if the json is empty
+        } catch (IOException e)
+        {
+            return new ArrayList<>();
+        }
     }
 
     public void onBackButtonClick() throws IOException

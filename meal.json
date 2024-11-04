@@ -1,1 +1,1 @@
-"{\"name\":\"Beef\",\"calories\":600,\"proteins\":100,\"fats\":20,\"carbs\":60}"
+[{"name":"test","calories":56,"proteins":23,"fats":132,"carbs":13},{"name":"sad","calories":12,"proteins":3,"fats":32,"carbs":2},{"name":"Poke","calories":300,"proteins":40,"fats":10,"carbs":3},{"name":"beef","calories":300,"proteins":23,"fats":12,"carbs":43}]

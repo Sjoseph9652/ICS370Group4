@@ -11,7 +11,7 @@ public class Meal
     public int fats;
     public int carbs;
 
-    public static List<Meal> mealList = new ArrayList<>(); //temp
+    public static List<Meal> mealList = new ArrayList<>();
 
     public Meal(String name, int calories, int proteins, int fats, int carbs)
     {
