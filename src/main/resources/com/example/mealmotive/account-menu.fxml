@@ -17,7 +17,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="299.0" layoutY="224.0" mnemonicParsing="false" text="Create Accont">
+      <Button fx:id="accountButton" layoutX="299.0" layoutY="224.0" mnemonicParsing="false" onAction="#onAccountButtonClick" text="Create Accont">
          <font>
             <Font size="18.0" />
          </font>

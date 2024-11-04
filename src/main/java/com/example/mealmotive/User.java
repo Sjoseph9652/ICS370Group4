@@ -1,21 +1,25 @@
 package com.example.mealmotive;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User
 {
-    private String firstName;
-    private String lastName;
+    public String firstName;
+    public String lastName;
     public String username;
-    private double height;
-    private double weight;
+    public String password;
+    public double height;
+    public double weight;
     public Goal goal;
+    public static List<User> userList = new ArrayList<>();
 
-    public User(String fname, String lName, String uname, double height, double weight)
+    public User(String fname, String lName, String uname, String pword)
     {
         firstName = fname;
         lastName = lName;
         username = uname;
-        this.height = height;
-        this.weight = weight;
+        password = pword;
     }
 
     public String getFirstName()
@@ -28,6 +32,10 @@ public class User
         return lastName;
     }
 
+    public String getUsername(){return username;}
+
+    public String getPassword(){return password;}
+
     public double getHeight()
     {
         return height;
@@ -36,11 +44,6 @@ public class User
     public double getWeight()
     {
         return weight;
-    }
-
-    public String toString()
-    {
-        return "\n name " + firstName + " " + lastName + " \n username " + username + " \n height " + height + " \n weight " + weight + "\n";
     }
 
 }

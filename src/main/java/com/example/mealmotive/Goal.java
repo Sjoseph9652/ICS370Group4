@@ -2,10 +2,10 @@ package com.example.mealmotive;
 
 public class Goal // phase 4
 {
-    private int targetCalories;
-    private int targetProtein;
-    private int targetFat;
-    private int targetCarbs;
+    public int targetCalories;
+    public int targetProtein;
+    public int targetFat;
+    public int targetCarbs;
 
     public Goal(int cal, int pro, int fat, int carbs)
     {
