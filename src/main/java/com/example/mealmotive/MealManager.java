@@ -7,13 +7,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-public class MealHistoryController
+public class MealManager
 {
     @FXML
     public Button backButton;
@@ -34,7 +33,7 @@ public class MealHistoryController
 
         for (Meal i : Meal.mealList)
         {
-            mealHistory.append(i.toString()).append("\n");
+            mealHistory.append(i.toString());
         }
         foodHistoryText.setText(mealHistory.toString());
     }
@@ -54,6 +53,7 @@ public class MealHistoryController
 
     public void onBackButtonClick() throws IOException
     {
+        System.out.println("Back button clicked");
         FXMLLoader fxmlLoader = new FXMLLoader(MealMotiveApplication.class.getResource("main-menu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 450);
         MealMotiveApplication.getStage().setScene(scene);

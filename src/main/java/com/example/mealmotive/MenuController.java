@@ -1,6 +1,5 @@
 package com.example.mealmotive;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
@@ -27,12 +26,12 @@ public class MenuController{
 
     public void onMealHistoryButtonCLick() throws IOException
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(MealMotiveApplication.class.getResource("meal-history.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MealMotiveApplication.class.getResource("MealManager.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 450);
         MealMotiveApplication.getStage().setScene(scene);
 
         // instance of meal history controller to call relevant method
-        MealHistoryController controller = fxmlLoader.getController();
+        MealManager controller = fxmlLoader.getController();
         controller.showMealHistory();
     }
 

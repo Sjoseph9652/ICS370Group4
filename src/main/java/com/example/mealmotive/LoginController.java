@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.io.FileReader;
@@ -23,12 +24,12 @@ public class LoginController
     @FXML
     private TextField usernameTextField;
     @FXML
-    private TextField passwordTextField;
+    private PasswordField passwordField;
 
     @FXML
     protected void onSubmitButtonClick() throws IOException {
         String username = usernameTextField.getText().trim(); // whitespace in username
-        String password = passwordTextField.getText().trim();
+        String password = passwordField.getText().trim();
         System.out.println(username);
         System.out.println(password);
 
