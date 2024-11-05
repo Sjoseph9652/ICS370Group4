@@ -9,6 +9,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class AccountController
@@ -17,10 +19,11 @@ public class AccountController
     public TextField fNameTextField;
     public TextField lNameTextField;
     public TextField uNameTextField;
-    public TextField pWordTextField;
+    public PasswordField pWordField;
 
     private static String path = "user.json";
     static Gson gson = new Gson();
+
 
     @FXML
     protected void onCreateAccountButtonClicked() throws IOException
@@ -28,7 +31,7 @@ public class AccountController
         String firstName = fNameTextField.getText();
         String lastName = lNameTextField.getText();
         String username = uNameTextField.getText();
-        String password = pWordTextField.getText();
+        String password = pWordField.getText();
 
         User.userList = loadUsers();
 
