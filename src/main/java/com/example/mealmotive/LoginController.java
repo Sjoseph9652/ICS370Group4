@@ -14,8 +14,6 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-import static com.example.mealmotive.AccountController.getUsers;
-
 public class LoginController
 {
     private static String path = "user.json";
@@ -51,8 +49,23 @@ public class LoginController
         }
     }
 
-    public static ArrayList<User> loadUsers()
+    static ArrayList<User> loadUsers()
     {
-        return getUsers(path, gson);
+        try(FileReader fr = new FileReader(path))
+        {
+            Type listType = new TypeToken<ArrayList<User>>() {}.getType();
+            ArrayList<User> list = gson.fromJson(fr, listType);
+            if(list != null)
+            {
+                return list;
+            } else
+            {
+                return new ArrayList<>();
+            }
+        } catch (IOException e)
+        {
+            return new ArrayList<>();
+        }
     }
+
 }

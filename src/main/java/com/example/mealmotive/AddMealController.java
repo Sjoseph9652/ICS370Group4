@@ -69,7 +69,13 @@ public class AddMealController
         {
             Type listType = new TypeToken<ArrayList<Meal>>() {}.getType();
             ArrayList<Meal> list = gson.fromJson(fr, listType);
-            return (list != null) ? list : new ArrayList<>(); // returns new array list if the json is empty
+            if(list != null)
+            {
+                return list;
+            } else
+            {
+                return new ArrayList<>();
+            }
         } catch (IOException e)
         {
             return new ArrayList<>();
