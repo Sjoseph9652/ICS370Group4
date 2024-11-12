@@ -18,8 +18,6 @@ public class MealManager
     public Button backButton;
     @FXML
     Text foodHistoryText;
-    static Gson gson = new Gson();
-    private static String path = "meal.json";
 
     /*
     Takes meal data from JSON folder
@@ -27,35 +25,17 @@ public class MealManager
      */
     public void showMealHistory()
     {
-        Meal.mealList = loadMeals();
+        DataManager.mealList = DataManager.loadMeals();
 
         StringBuilder mealHistory = new StringBuilder();
 
-        for (Meal i : Meal.mealList)
+        for (Meal i : DataManager.mealList)
         {
             mealHistory.append(i.toString());
         }
         foodHistoryText.setText(mealHistory.toString());
     }
 
-    public static ArrayList<Meal> loadMeals()
-    {
-        try(FileReader fr = new FileReader(path))
-        {
-            Type listType = new TypeToken<ArrayList<Meal>>() {}.getType();
-            ArrayList<Meal> list = gson.fromJson(fr, listType);
-            if(list != null)
-            {
-                return list;
-            } else
-            {
-                return new ArrayList<>();
-            }
-        } catch (IOException e)
-        {
-            return new ArrayList<>();
-        }
-    }
 
     public void onBackButtonClick() throws IOException
     {

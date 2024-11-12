@@ -24,9 +24,6 @@ public class AddMealController
     public TextField carbsTextField;
     public Button addButton;
 
-    private static String path = "meal.json";
-    static Gson gson = new Gson();
-
     /*
     Takes user information based on meal
     ArrayList takes current meals from JSON if there is any
@@ -42,45 +39,17 @@ public class AddMealController
         int fats = Integer.parseInt(fatTextField.getText());
         int carbs = Integer.parseInt(carbsTextField.getText());
 
-        Meal.mealList = loadMeals(); // mealList takes data from the JSON file
+        DataManager.mealList = DataManager.loadMeals();
 
         Meal placeholder = new Meal(name, calorie, protein, fats, carbs);
-        Meal.mealList.add(placeholder); // meal added to array list
 
-        try // load meal
-        {
-            FileWriter fw = new FileWriter(path);
-            gson.toJson(Meal.mealList, fw);
-            fw.close();
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+        DataManager.saveMeal(placeholder);
 
         FXMLLoader fxmlLoader = new FXMLLoader(MealMotiveApplication.class.getResource("main-menu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 450);
         MealMotiveApplication.getStage().setScene(scene);
     }
 
-    //
-    public static ArrayList<Meal> loadMeals()
-    {
-        try(FileReader fr = new FileReader(path))
-        {
-            Type listType = new TypeToken<ArrayList<Meal>>() {}.getType();
-            ArrayList<Meal> list = gson.fromJson(fr, listType);
-            if(list != null)
-            {
-                return list;
-            } else
-            {
-                return new ArrayList<>();
-            }
-        } catch (IOException e)
-        {
-            return new ArrayList<>();
-        }
-    }
     
     public void onBackButtonClick() throws IOException
     {

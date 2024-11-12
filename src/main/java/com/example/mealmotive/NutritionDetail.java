@@ -25,13 +25,16 @@ public class NutritionDetail
      * Gives feedback on amount of carbs, fats, and proteins consumed
      * Based on NIH health
      */
+
+
+    // User class inside software sequence diagram
     public void calculateNutritionReport(ArrayList<Meal> meals)
     {
         int totalProteins = 0;
         int totalFats = 0;
         int totalCarbs = 0;
 
-        Meal.mealList = loadMeals();
+        DataManager.mealList = loadMeals();
 
         for(Meal i : meals)
         {

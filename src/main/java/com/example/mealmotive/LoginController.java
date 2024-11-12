@@ -16,9 +16,6 @@ import java.util.ArrayList;
 
 public class LoginController
 {
-    private static String path = "user.json";
-    static Gson gson = new Gson();
-
     @FXML
     private TextField usernameTextField;
     @FXML
@@ -31,10 +28,10 @@ public class LoginController
         System.out.println(username);
         System.out.println(password);
 
-        User.userList = loadUsers();
-        System.out.println(User.userList);
+        DataManager.userList = DataManager.loadUsers();
+        System.out.println(DataManager.userList);
 
-        for (User i : User.userList)
+        for (User i : DataManager.userList)
         {
             if(i.getUsername().equals(username) && i.getPassword().equals(password))
             {
@@ -49,23 +46,5 @@ public class LoginController
         }
     }
 
-    static ArrayList<User> loadUsers()
-    {
-        try(FileReader fr = new FileReader(path))
-        {
-            Type listType = new TypeToken<ArrayList<User>>() {}.getType();
-            ArrayList<User> list = gson.fromJson(fr, listType);
-            if(list != null)
-            {
-                return list;
-            } else
-            {
-                return new ArrayList<>();
-            }
-        } catch (IOException e)
-        {
-            return new ArrayList<>();
-        }
-    }
 
 }

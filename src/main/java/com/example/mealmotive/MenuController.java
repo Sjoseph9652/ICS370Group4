@@ -49,7 +49,7 @@ public class MenuController{
         MealMotiveApplication.getStage().setScene(scene);
 
         NutritionDetail controller = fxmlLoader.getController();
-        controller.calculateNutritionReport((ArrayList<Meal>) Meal.mealList);
+        controller.calculateNutritionReport((ArrayList<Meal>) DataManager.mealList);
 
     }
 
