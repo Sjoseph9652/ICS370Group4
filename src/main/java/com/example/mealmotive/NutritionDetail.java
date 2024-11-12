@@ -17,15 +17,12 @@ public class NutritionDetail
 
     public Button backButton;
     public Text nutritionText;
-    static Gson gson = new Gson();
-    private static String path = "meal.json";
 
     /*
      * Takes the users ArrayList of meals.
      * Gives feedback on amount of carbs, fats, and proteins consumed
      * Based on NIH health
      */
-
 
     // User class inside software sequence diagram
     public void calculateNutritionReport(ArrayList<Meal> meals)
@@ -34,7 +31,7 @@ public class NutritionDetail
         int totalFats = 0;
         int totalCarbs = 0;
 
-        DataManager.mealList = loadMeals();
+        DataManager.mealList = DataManager.loadMeals();
 
         for(Meal i : meals)
         {
@@ -80,25 +77,6 @@ public class NutritionDetail
         {
             textTracker = nutritionText.getText();
             nutritionText.setText(textTracker + Math.floor(carbRatio) + " % Of your calories was made up of carbs. Consider less carbs. \n");
-        }
-    }
-
-    public static ArrayList<Meal> loadMeals()
-    {
-        try(FileReader fr = new FileReader(path))
-        {
-            Type listType = new TypeToken<ArrayList<Meal>>() {}.getType();
-            ArrayList<Meal> list = gson.fromJson(fr, listType);
-            if(list != null)
-            {
-                return list;
-            } else
-            {
-                return new ArrayList<>();
-            }
-        } catch (IOException e)
-        {
-            return new ArrayList<>();
         }
     }
 

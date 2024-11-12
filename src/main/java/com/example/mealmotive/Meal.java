@@ -30,12 +30,6 @@ public class Meal
     return proteinRatio;
 }
 
-
-
-
-
-
-
     //public static List<Meal> mealList = new ArrayList<>();
 
     public Meal(String name, int calories, int proteins, int fats, int carbs)
