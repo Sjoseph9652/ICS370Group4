@@ -20,6 +20,7 @@ public class LoginController
     private TextField usernameTextField;
     @FXML
     private PasswordField passwordField;
+    public static String currentUser;
 
     @FXML
     protected void onSubmitButtonClick() throws IOException {
@@ -35,6 +36,7 @@ public class LoginController
         {
             if(i.getUsername().equals(username) && i.getPassword().equals(password))
             {
+                currentUser = i.getUsername();
                 FXMLLoader fxmlLoader = new FXMLLoader(MealMotiveApplication.class.getResource("main-menu.fxml"));
                 Scene scene = new Scene(fxmlLoader.load(), 800, 450);
                 MealMotiveApplication.getStage().setScene(scene);

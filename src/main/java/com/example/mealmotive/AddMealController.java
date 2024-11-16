@@ -41,7 +41,7 @@ public class AddMealController
 
         DataManager.mealList = DataManager.loadMeals();
 
-        Meal placeholder = new Meal(name, calorie, protein, fats, carbs);
+        Meal placeholder = new Meal(name, calorie, protein, fats, carbs, LoginController.currentUser);
 
         DataManager.saveMeal(placeholder);
 

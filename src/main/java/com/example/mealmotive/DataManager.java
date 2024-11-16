@@ -8,7 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.List;
 
 public class DataManager
 {
@@ -26,6 +25,34 @@ public class DataManager
         {
             Type listType = new TypeToken<ArrayList<Meal>>() {}.getType();
             ArrayList<Meal> list = gson.fromJson(fr, listType);
+            ArrayList<Meal> userMeals = new ArrayList<>();
+
+            if(list == null)
+            {
+                return new ArrayList<>();
+            }
+
+            for(Meal i : list)
+            {
+                if(i.getUsername() != null && i.getUsername().equals(LoginController.currentUser))
+                {
+                    userMeals.add(i);
+                }
+            }
+            return userMeals;
+
+        } catch (IOException e)
+        {
+            return new ArrayList<>();
+        }
+    }
+
+    /*public static ArrayList<Meal> loadUserMeals()
+    {
+        try(FileReader fr = new FileReader(mealFile))
+        {
+            Type listType = new TypeToken<ArrayList<Meal>>() {}.getType();
+            ArrayList<Meal> list = gson.fromJson(fr, listType);
             if(list != null)
             {
                 return list;
@@ -33,11 +60,12 @@ public class DataManager
             {
                 return new ArrayList<>();
             }
+
         } catch (IOException e)
         {
             return new ArrayList<>();
         }
-    }
+    }*/
 
     public static void saveMeal(Meal meal)
     {

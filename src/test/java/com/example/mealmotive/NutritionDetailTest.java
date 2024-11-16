@@ -13,7 +13,7 @@ class NutritionDetailTest {
     void NutritionTest(){
         List<Meal> mealList = new ArrayList<>();
 
-        Meal M = new Meal("Chicken", 25, 50, 75, 100);
+        Meal M = new Meal("Chicken", 25, 50, 75, 100, LoginController.currentUser);
 
         mealList.add(M);
 

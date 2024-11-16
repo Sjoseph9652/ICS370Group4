@@ -1,8 +1,5 @@
 package com.example.mealmotive;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Meal
 {
     public String name;
@@ -10,6 +7,8 @@ public class Meal
     public int proteins;
     public int fats;
     public int carbs;
+    public String username;
+
 
     // NEW!
     public int totalNutrients;
@@ -32,13 +31,14 @@ public class Meal
 
     //public static List<Meal> mealList = new ArrayList<>();
 
-    public Meal(String name, int calories, int proteins, int fats, int carbs)
+    public Meal(String name, int calories, int proteins, int fats, int carbs, String username)
     {
         this.name = name;
         this.calories = calories;
         this.proteins = proteins;
         this.fats = fats;
         this.carbs = carbs;
+        this.username = username;
 
         // Taken from NutritionDetail Class[NEW!]
         totalNutrients = this.proteins + this.fats + this.carbs;
@@ -68,6 +68,8 @@ public class Meal
     {
         return carbs;
     }
+
+    public String getUsername() { return username; }
 
     public String toString()
     {
