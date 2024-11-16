@@ -12,7 +12,6 @@ public class User
     public double height;
     public double weight;
     public Goal goal;
-    //public static List<User> userList = new ArrayList<>();
 
     public User(String fname, String lName, String uname, String pword)
     {

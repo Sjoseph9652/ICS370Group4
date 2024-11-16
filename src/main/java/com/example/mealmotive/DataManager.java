@@ -13,10 +13,10 @@ import java.util.List;
 public class DataManager
 {
     private static String mealFile = "meals.json";
-    public static List<Meal> mealList = new ArrayList<>();
+    public static ArrayList<Meal> mealList = new ArrayList<>();
 
     private static String userFile = "user.json";
-    public static List<User>userList = new ArrayList<>();
+    public static ArrayList<User>userList = new ArrayList<>();
 
     static Gson gson = new Gson();
 

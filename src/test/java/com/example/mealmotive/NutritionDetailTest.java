@@ -19,7 +19,7 @@ class NutritionDetailTest {
 
         NutritionDetail ND1 = new NutritionDetail();
 
-        ND1.calculateNutritionReport((ArrayList<Meal>) Meal.mealList);
+        ND1.calculateNutritionReport((ArrayList<Meal>) DataManager.mealList);
 
         /*
         * work
