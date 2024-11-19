@@ -28,6 +28,5 @@
             <Button fx:id="backButton" layoutX="689.0" layoutY="108.0" mnemonicParsing="false" onAction="#onBackButtonClick" text="Back" />
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
    </children>
 </VBox>

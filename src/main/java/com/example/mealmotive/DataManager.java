@@ -17,6 +17,10 @@ public class DataManager
     private static String userFile = "user.json";
     public static ArrayList<User>userList = new ArrayList<>();
 
+    private static String goalFile = "goals.json";
+    public static ArrayList<Goal>goalList = new ArrayList<>();
+
+
     static Gson gson = new Gson();
 
     public static ArrayList<Meal> loadMeals()
@@ -46,26 +50,6 @@ public class DataManager
             return new ArrayList<>();
         }
     }
-
-    /*public static ArrayList<Meal> loadUserMeals()
-    {
-        try(FileReader fr = new FileReader(mealFile))
-        {
-            Type listType = new TypeToken<ArrayList<Meal>>() {}.getType();
-            ArrayList<Meal> list = gson.fromJson(fr, listType);
-            if(list != null)
-            {
-                return list;
-            } else
-            {
-                return new ArrayList<>();
-            }
-
-        } catch (IOException e)
-        {
-            return new ArrayList<>();
-        }
-    }*/
 
     public static void saveMeal(Meal meal)
     {
@@ -109,6 +93,49 @@ public class DataManager
             gson.toJson(DataManager.userList, fw);
             fw.close();
         } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static ArrayList<Goal>loadGoals()
+    {
+        try(FileReader fr = new FileReader(goalFile))
+        {
+            Type listType = new TypeToken<ArrayList<Goal>>() {}.getType();
+            ArrayList<Goal> list = gson.fromJson(fr, listType);
+            ArrayList<Goal> userGoals = new ArrayList<>();
+
+            if(list == null)
+            {
+                return new ArrayList<>();
+            }
+
+            for(Goal i : list)
+            {
+                if(i.getUsername() != null && i.getUsername().equals(LoginController.currentUser))
+                {
+                    userGoals.add(i);
+                }
+            }
+            return userGoals;
+
+        } catch (IOException e)
+        {
+            return new ArrayList<>();
+        }
+    }
+
+    public static void saveGoal(Goal goal)
+    {
+        try
+        {
+            FileWriter fw = new FileWriter(goalFile);
+            goalList.add(goal);
+            gson.toJson(DataManager.goalList, fw);
+            fw.close();
+        }
+        catch(IOException e)
         {
             e.printStackTrace();
         }

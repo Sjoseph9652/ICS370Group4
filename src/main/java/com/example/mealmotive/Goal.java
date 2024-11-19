@@ -6,13 +6,15 @@ public class Goal // phase 4
     public int targetProtein;
     public int targetFat;
     public int targetCarbs;
+    public String username;
 
-    public Goal(int cal, int pro, int fat, int carbs)
+    public Goal(int cal, int pro, int fat, int carbs, String uname)
     {
         targetCalories = cal;
         targetProtein = pro;
         targetFat = fat;
         targetCarbs = carbs;
+        username = uname;
     }
 
     public int getTargetCarbs()
@@ -34,6 +36,8 @@ public class Goal // phase 4
     {
         return targetCalories;
     }
+
+    public String getUsername() { return username; }
 
     @Override
     public String toString()

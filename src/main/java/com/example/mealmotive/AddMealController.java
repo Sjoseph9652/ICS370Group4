@@ -30,6 +30,7 @@ public class AddMealController
     adds inputted meal to the meal ArrayList
     Array list is written to JSON file
     */
+
     @FXML
     protected void onAddButtonClicked() throws IOException
     {
