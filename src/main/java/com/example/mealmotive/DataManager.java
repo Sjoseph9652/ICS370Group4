@@ -1,6 +1,7 @@
 package com.example.mealmotive;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.FileReader;
@@ -22,6 +23,7 @@ public class DataManager
 
 
     static Gson gson = new Gson();
+    //static Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 
     public static ArrayList<Meal> loadMeals()
     {

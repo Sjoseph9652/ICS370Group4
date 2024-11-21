@@ -2,12 +2,12 @@ package com.example.mealmotive;
 
 public class Meal
 {
-    private final String name;
-    private final int calories;
-    private final int proteins;
-    private final int fats;
-    private final int carbs;
-    private final String username;
+    public final String name;
+    public final int calories;
+    public final int proteins;
+    public final int fats;
+    public final int carbs;
+    public final String username;
 
     private Meal(MealBuilder builder)
     {
@@ -66,6 +66,14 @@ public class Meal
 
         public Meal build()
         {
+            if(name == null)
+            {
+                throw new IllegalArgumentException("name cannot be null");
+            }
+            if(calories < 0)
+            {
+                throw new IllegalArgumentException("calories cannot be negative");
+            }
             return new Meal(this);
         }
     }
@@ -142,4 +150,5 @@ public class Meal
     {
         return "\n name " + name + " \n calories " + calories + " \n proteins " + proteins + " \n fats " + fats + " \n carbs " + carbs + "\n";
     }
+    // https://www.youtube.com/watch?v=sZYfZrA-gA0 - builder design
 }
