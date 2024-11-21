@@ -2,12 +2,73 @@ package com.example.mealmotive;
 
 public class Meal
 {
-    public String name;
-    public int calories;
-    public int proteins;
-    public int fats;
-    public int carbs;
-    public String username;
+    private final String name;
+    private final int calories;
+    private final int proteins;
+    private final int fats;
+    private final int carbs;
+    private final String username;
+
+    private Meal(MealBuilder builder)
+    {
+        this.name = builder.name;
+        this.calories = builder.calories;
+        this.proteins = builder.proteins;
+        this.fats = builder.fats;
+        this.carbs = builder.carbs;
+        this.username = builder.username;
+    }
+
+    public static class MealBuilder
+    {
+        private String name;
+        private int calories;
+        private int proteins;
+        private int fats;
+        private int carbs;
+        private String username;
+
+        public MealBuilder setName(String name)
+        {
+            this.name = name;
+            return this;
+        }
+
+        public MealBuilder setCalories(int calories)
+        {
+            this.calories = calories;
+            return this;
+        }
+
+        public MealBuilder setProteins(int proteins)
+        {
+            this.proteins = proteins;
+            return this;
+        }
+
+        public MealBuilder setFats(int fats)
+        {
+            this.fats = fats;
+            return this;
+        }
+
+        public MealBuilder setCarbs(int carbs)
+        {
+            this.carbs = carbs;
+            return this;
+        }
+
+        public MealBuilder setUsername(String username)
+        {
+            this.username = username;
+            return this;
+        }
+
+        public Meal build()
+        {
+            return new Meal(this);
+        }
+    }
 
 
     // NEW!
@@ -31,7 +92,7 @@ public class Meal
 
     //public static List<Meal> mealList = new ArrayList<>();
 
-    public Meal(String name, int calories, int proteins, int fats, int carbs, String username)
+    /*public Meal(String name, int calories, int proteins, int fats, int carbs, String username)
     {
         this.name = name;
         this.calories = calories;
@@ -45,14 +106,17 @@ public class Meal
         proteinRatio = (double)this.proteins / this.totalNutrients * 100;
         fatRatio = (double)this.fats / this.totalNutrients * 100;
         carbRatio = (double)this.carbs / this.totalNutrients * 100;
-    }
+    }*/
 
     public String getName()
     {
         return name;
     }
 
-    public int getCalories() {return calories;}
+    public int getCalories()
+    {
+        return calories;
+    }
 
     public int getProteins()
     {
@@ -69,7 +133,10 @@ public class Meal
         return carbs;
     }
 
-    public String getUsername() { return username; }
+    public String getUsername()
+    {
+        return username;
+    }
 
     public String toString()
     {

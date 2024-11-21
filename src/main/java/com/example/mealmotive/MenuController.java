@@ -53,5 +53,9 @@ public class MenuController{
 
     }
 
-    //To add: Login. Delete Meal.
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    public void onAddGoalButtonClick()
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+    }
 }

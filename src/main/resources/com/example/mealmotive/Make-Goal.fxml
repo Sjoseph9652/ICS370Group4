@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mealmotive.Goal">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mealmotive.AddGoalController">
    <children>
       <Label layoutX="276.0" layoutY="36.0" prefHeight="26.0" prefWidth="99.0" text="Make A Goal" textAlignment="JUSTIFY">
          <font>

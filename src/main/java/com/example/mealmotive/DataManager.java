@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class DataManager
 {
-    private static String mealFile = "meals.json";
+    private static String mealFile = "meal.json";
     public static ArrayList<Meal> mealList = new ArrayList<>();
 
     private static String userFile = "user.json";

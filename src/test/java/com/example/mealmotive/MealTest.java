@@ -9,7 +9,14 @@ class MealTest {
         void mealTest() {
 
             // Creating a Meal object
-            Meal M = new Meal("Turkey", 100, 200, 300, 400, LoginController.currentUser);
+            Meal M = new Meal.MealBuilder()
+                    .setName("Turkey")
+                    .setCalories(100)
+                    .setProteins(200)
+                    .setFats(300)
+                    .setCarbs(400)
+                    .setUsername(LoginController.currentUser)
+                    .build();
 
             // String variable called S that contains the results from the getName method.
             String S = M.getName();
