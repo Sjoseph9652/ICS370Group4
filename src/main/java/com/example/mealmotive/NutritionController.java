@@ -16,11 +16,20 @@ public class NutritionController
     @FXML
     private Button backButton;
 
+    @FXML
+    private Text mealSuggestionText;
+
     public void getNutritionDetail()
     {
         DataManager.mealList = DataManager.loadMeals();
         String textTracker = NutritionDetail.calculateNutritionReport(DataManager.mealList);
         nutritionText.setText(textTracker);
+    }
+
+    public void suggestAMeal()
+    {
+
+        mealSuggestionText.setText("Here is a meal suggestion");
     }
 
     public void onBackButtonClick() throws IOException

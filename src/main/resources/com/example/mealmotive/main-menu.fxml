@@ -11,7 +11,7 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
     <Button fx:id="addMealButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" onAction="#onAddMealButtonClick" scaleX="1.5" scaleY="1.5" text="Add Meal" translateX="200.0" />
-   <Label scaleX="2.0" scaleY="2.0" text="Meal Score" translateX="-150.0" />
+   <Label scaleX="2.0" scaleY="2.0" text="Meal Motive" translateX="-150.0" />
    <CubicCurve controlX1="-148.5833740234375" controlX2="150.79505920410156" controlY1="-230.87811279296875" controlY2="-231.41705322265625" endX="150.0" fill="DODGERBLUE" startX="-150.0" stroke="BLACK" translateX="-150.0" />
    <Button fx:id="MealHistoryButton" mnemonicParsing="false" onAction="#onMealHistoryButtonCLick" scaleX="1.5" scaleY="1.5" text="Meal History" translateX="200.0" translateY="-125.0" />
    <Button fx:id="nutritionDetailButton" mnemonicParsing="false" onAction="#onNutritionDetailButtonClick" scaleX="1.5" scaleY="1.5" text="Nutrition Detail" translateX="200.0" translateY="-25.0" />

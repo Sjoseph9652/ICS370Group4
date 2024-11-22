@@ -21,6 +21,9 @@ public class DataManager
     private static String goalFile = "goals.json";
     public static ArrayList<Goal>goalList = new ArrayList<>();
 
+    private static String mealSuggestionFile = "mealSuggestion.json";
+    public static ArrayList<Meal>mealSuggestionList = new ArrayList<>();
+
 
     static Gson gson = new Gson();
     //static Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();

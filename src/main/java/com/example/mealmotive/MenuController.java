@@ -50,6 +50,7 @@ public class MenuController{
 
         NutritionController controller = fxmlLoader.getController();
         controller.getNutritionDetail();
+        controller.suggestAMeal();
 
     }
 

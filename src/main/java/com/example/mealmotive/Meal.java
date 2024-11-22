@@ -148,7 +148,7 @@ public class Meal
 
     public String toString()
     {
-        return "\n name " + name + " \n calories " + calories + " \n proteins " + proteins + " \n fats " + fats + " \n carbs " + carbs + "\n";
+        return "\n" + name + " \n calories " + calories + " \n proteins " + proteins + " \n fats " + fats + " \n carbs " + carbs + "\n";
     }
     // https://www.youtube.com/watch?v=sZYfZrA-gA0 - builder design
 }
