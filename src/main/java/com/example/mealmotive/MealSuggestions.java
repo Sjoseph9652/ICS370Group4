@@ -1,19 +1,5 @@
 package com.example.mealmotive;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.math.MathContext;
-
-import static com.example.mealmotive.DataManager.gson;
-
-
 public class MealSuggestions {
 
     public final String name;
@@ -110,14 +96,14 @@ public class MealSuggestions {
     /// Gets the total calories from the NutritionDetail
     /// Compare the total calories from the user and see if they are greater than 2300
     /// If so then they get a meal suggestions
-    /// If not then they get a meesage saying something positive.
+    /// If not then they get a message saying something positive.
 
     public static String CalCompare() {
         String HealthMessage = "";
         StringBuilder mealSuggestions = new StringBuilder();
 
         if (NutritionDetail.CalorieCount(DataManager.mealList) > 2300) {
-            HealthMessage = "Keeping calories down could help reduce weight loss. Consider trying some of out healthy suggestions";
+            HealthMessage = "Keeping calories down could help reduce weight loss. Consider trying some of our healthy suggestions";
 
             DataManager.MealSuggestionList = DataManager.loadSuggestedMeals();
 
