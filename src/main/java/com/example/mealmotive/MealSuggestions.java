@@ -21,7 +21,7 @@ public class MealSuggestions {
     public final int proteins;
     public final int fats;
     public final int carbs;
-    public static String feedback;
+    public String feedback;
 
     private MealSuggestions(MealSuggestions.SuggestionBuilder builder)
     {
@@ -33,7 +33,7 @@ public class MealSuggestions {
         this.feedback = builder.feedback;
     }
 
-    public static ArrayList<MealSuggestions>LoadSuggestions()
+    /*public static ArrayList<MealSuggestions>LoadSuggestions()
     {
         try(FileReader fr = new FileReader("MealSuggestion.json"))
         {
@@ -56,7 +56,7 @@ public class MealSuggestions {
         {
             return new ArrayList<>();
         }
-    }
+    }*/
 
     public static class SuggestionBuilder {
         private String name;
@@ -106,19 +106,34 @@ public class MealSuggestions {
             }
             return new MealSuggestions(this);
         }
-
-
     }
     /// Gets the total calories from the NutritionDetail
     /// Compare the total calories from the user and see if they are greater than 2300
     /// If so then they get a meal suggestions
     /// If not then they get a meesage saying something positive.
 
-    public String CalCompare() {
+    public static String CalCompare() {
         String HealthMessage = "";
+        StringBuilder mealSuggestions = new StringBuilder();
 
         if (NutritionDetail.CalorieCount(DataManager.mealList) > 2300) {
             HealthMessage = "Keeping calories down could help reduce weight loss. Consider trying some of out healthy suggestions";
+
+            DataManager.MealSuggestionList = DataManager.loadSuggestedMeals();
+
+            for (MealSuggestions i : DataManager.MealSuggestionList)
+            {
+                mealSuggestions.append(i.toString());
+                System.out.println(mealSuggestions.toString());
+                System.out.println("test");
+            }
+
+            mealSuggestions.append("\n");
+
+            String mealSuggestionText = mealSuggestions.toString();
+
+            HealthMessage = HealthMessage + "\n" + mealSuggestionText;
+            System.out.println(HealthMessage);
         }
 
         else {
@@ -127,6 +142,11 @@ public class MealSuggestions {
         }
         return HealthMessage;
 
+    }
+
+    public String toString()
+    {
+        return "\n" + name + " \n calories " + calories + " \n proteins " + proteins + " \n fats " + fats + " \n carbs " + carbs + "\n" + feedback;
     }
 }
 

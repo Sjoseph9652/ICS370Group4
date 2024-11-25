@@ -1,7 +1,6 @@
 package com.example.mealmotive;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.FileReader;
@@ -21,12 +20,12 @@ public class DataManager
     private static String goalFile = "goals.json";
     public static ArrayList<Goal>goalList = new ArrayList<>();
 
-    private static String mealSuggestionFile = "mealSuggestion.json";
-    public static ArrayList<Meal>mealSuggestionList = new ArrayList<>();
+    //private static String mealSuggestionFile = "mealSuggestion.json";
+    public static ArrayList<MealSuggestions> MealSuggestionList = new ArrayList<>();
 
     /// NEW!
-    private static String MealSuggestionFile = "MealSuggestion.json";
-    public static ArrayList<MealSuggestions>MealSuggestionList = new ArrayList<>();
+    private static String mealSuggestionFile = "MealSuggestion.json";
+    //public static ArrayList<MealSuggestions>MealSuggestionList = new ArrayList<>();
 
 
 
@@ -150,4 +149,26 @@ public class DataManager
             e.printStackTrace();
         }
     }
+
+    public static ArrayList<MealSuggestions> loadSuggestedMeals()
+    {
+        try(FileReader fr = new FileReader(mealSuggestionFile))
+        {
+            Type listType = new TypeToken<ArrayList<MealSuggestions>>() {}.getType();
+            ArrayList<MealSuggestions> mealSuggestionsLists = gson.fromJson(fr, listType);
+            if(mealSuggestionsLists != null)
+            {
+                return mealSuggestionsLists;
+            } else
+            {
+                return new ArrayList<>();
+            }
+        } catch (IOException e)
+        {
+            return new ArrayList<>();
+        }
+    }
+
+
+
 }

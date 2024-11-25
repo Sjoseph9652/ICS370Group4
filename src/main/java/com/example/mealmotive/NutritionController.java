@@ -40,7 +40,7 @@ public class NutritionController
      */
     public void suggestAMeal()
     {
-        mealSuggestionText.setText("Here is a meal suggestion");
+        mealSuggestionText.setText(MealSuggestions.CalCompare());
 
         /*
         /// NEW!
