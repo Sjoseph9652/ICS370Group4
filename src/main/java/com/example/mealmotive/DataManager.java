@@ -24,6 +24,11 @@ public class DataManager
     private static String mealSuggestionFile = "mealSuggestion.json";
     public static ArrayList<Meal>mealSuggestionList = new ArrayList<>();
 
+    /// NEW!
+    private static String MealSuggestionFile = "MealSuggestion.json";
+    public static ArrayList<MealSuggestions>MealSuggestionList = new ArrayList<>();
+
+
 
     static Gson gson = new Gson();
     //static Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();

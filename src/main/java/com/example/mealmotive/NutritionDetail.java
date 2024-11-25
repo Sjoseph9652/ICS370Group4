@@ -24,6 +24,23 @@ public class NutritionDetail
      * Based on NIH health
      */
 
+    /// This method calculates the total calories of all the meals enter by the user.
+    ///  NEW!
+    public static int CalorieCount(ArrayList<Meal> meals)
+    {
+        int totalCalories = 0;
+        DataManager.mealList = DataManager.loadMeals();
+
+        for(Meal i : meals)
+        {
+            totalCalories += i.getCalories();
+        }
+
+        return totalCalories;
+    }
+    /// -----------------------------
+
+
     // User class inside software sequence diagram
     public static String calculateNutritionReport(ArrayList<Meal> meals)
     {
@@ -39,7 +56,7 @@ public class NutritionDetail
             totalFats += (int) i.getFats();
             totalCarbs += (int) i.getCarbs();
         }
-
+        // NOTE! you can total the methods through the meal class and interate through the meal objects to get for each meal
         int totalNutrients = totalProteins + totalFats + totalCarbs;
         double proteinRatio = (double)totalProteins / totalNutrients * 100;
         double fatRatio = (double)totalFats / totalNutrients * 100;

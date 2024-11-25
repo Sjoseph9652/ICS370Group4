@@ -1,0 +1,3 @@
+[{"name" : "Breakfest: Yogurt and Berries", "calories" : 300, "proteins" : 100, "fats" : 100, "carbs" : 100, "feedback" : "This is good healthy first meal of the day" },
+{"name" : "Lunch:  Chicken pasta", "calories" : 400, "proteins" : 150, "fats" : 50, "carbs" : 100, "feedback" : "This is good healthy second meal of the day"},
+  {"name" : "Dinner:  Steak and potatoes", "calories" : 600, "proteins" : 200, "fats" : 50, "carbs" : 200, "feedback" : "This is good healthy third meal of the day" }]
