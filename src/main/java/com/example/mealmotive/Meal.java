@@ -66,14 +66,6 @@ public class Meal
 
         public Meal build()
         {
-            if(name == null)
-            {
-                throw new IllegalArgumentException("name cannot be null");
-            }
-            if(calories < 0)
-            {
-                throw new IllegalArgumentException("calories cannot be negative");
-            }
             return new Meal(this);
         }
     }
