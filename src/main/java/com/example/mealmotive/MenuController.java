@@ -54,9 +54,10 @@ public class MenuController{
 
     }
 
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    public void onAddGoalButtonClick()
+    public void onAddGoalButtonClick() throws IOException
     {
-        FXMLLoader fxmlLoader = new FXMLLoader();
+        FXMLLoader fxmlLoader = new FXMLLoader(MealMotiveApplication.class.getResource("Make-Goal.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 450);
+        MealMotiveApplication.getStage().setScene(scene);
     }
 }

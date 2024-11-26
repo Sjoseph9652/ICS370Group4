@@ -30,7 +30,7 @@ public class LoginController
         System.out.println(password);
 
         DataManager.userList = DataManager.loadUsers();
-        System.out.println(DataManager.userList);
+        //System.out.println(DataManager.userList);
 
         for (User i : DataManager.userList)
         {

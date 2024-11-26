@@ -1,5 +1,7 @@
 package com.example.mealmotive;
 
+import javafx.scene.chart.PieChart;
+
 public class MealSuggestions {
 
     public final String name;
@@ -101,14 +103,29 @@ public class MealSuggestions {
     public static String CalCompare() {
         String HealthMessage = "";
         StringBuilder mealSuggestions = new StringBuilder();
+        DataManager.goalList = DataManager.loadGoals();
 
-        if (NutritionDetail.CalorieCount(DataManager.mealList) > 2300) {
+        Goal g = null;
+        for (Goal i : DataManager.goalList)
+        {
+            if (i.getUsername().equals(LoginController.currentUser))
+            {
+                g = i;
+            }
+        }
+        if(g == null)
+        {
+            g = new Goal(2300, LoginController.currentUser);
+        }
+
+            System.out.println(g.toString());
+
+        if (NutritionDetail.CalorieCount(DataManager.mealList) > g.getTargetCalories()) {
             HealthMessage = "Keeping calories down could help reduce weight loss. Consider trying some of our healthy suggestions";
 
             DataManager.MealSuggestionList = DataManager.loadSuggestedMeals();
 
-            for (MealSuggestions i : DataManager.MealSuggestionList)
-            {
+            for (MealSuggestions i : DataManager.MealSuggestionList) {
                 mealSuggestions.append(i.toString());
                 System.out.println(mealSuggestions.toString());
                 System.out.println("test");
@@ -121,8 +138,8 @@ public class MealSuggestions {
             HealthMessage = HealthMessage + "\n" + mealSuggestionText;
             System.out.println(HealthMessage);
         }
-
-        else {
+        else
+        {
             HealthMessage = "Your calorie count is in a good place for the meals you have logged!";
 
         }

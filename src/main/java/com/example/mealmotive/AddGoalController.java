@@ -1,5 +1,7 @@
 package com.example.mealmotive;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -9,28 +11,24 @@ import java.io.IOException;
 
 public class AddGoalController
 {
-    public TextField targetProteinTextFiled;
     public TextField targetCalorieTextField;
-    public TextField targetFatTextField;
-    public TextField targetCarbsTextField;
     public Button addButton;
 
-    protected void onGoalButtonClicked() throws IOException
+    @FXML
+    protected void onAddButtonClicked() throws IOException
     {
         int calorie = Integer.parseInt(targetCalorieTextField.getText());
-        int protein = Integer.parseInt(targetProteinTextFiled.getText());
-        int fats = Integer.parseInt(targetFatTextField.getText());
-        int carbs = Integer.parseInt(targetCarbsTextField.getText());
 
         DataManager.goalList = DataManager.loadGoals();
 
-        Goal placeholder = new Goal(calorie, protein, fats, carbs, LoginController.currentUser);
+        Goal placeholder = new Goal(calorie, LoginController.currentUser);
 
         DataManager.saveGoal(placeholder);
 
         FXMLLoader fxmlLoader = new FXMLLoader(MealMotiveApplication.class.getResource("main-menu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 450);
         MealMotiveApplication.getStage().setScene(scene);
+        System.out.println(placeholder.toString());
     }
 
     public void onBackButtonClick() throws IOException
@@ -39,5 +37,4 @@ public class AddGoalController
         Scene scene = new Scene(fxmlLoader.load(), 800, 450);
         MealMotiveApplication.getStage().setScene(scene);
     }
-
 }

@@ -125,6 +125,10 @@ public class DataManager
                 if(i.getUsername() != null && i.getUsername().equals(LoginController.currentUser))
                 {
                     userGoals.add(i);
+                    if (userGoals.size() > 1)
+                    {
+                        userGoals.remove(0);
+                    }
                 }
             }
             return userGoals;
