@@ -118,8 +118,6 @@ public class MealSuggestions {
             g = new Goal(2300, LoginController.currentUser);
         }
 
-            System.out.println(g.toString());
-
         if (NutritionDetail.CalorieCount(DataManager.mealList) > g.getTargetCalories()) {
             HealthMessage = "Keeping calories down could help reduce weight loss. Consider trying some of our healthy suggestions";
 
