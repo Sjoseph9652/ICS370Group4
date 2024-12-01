@@ -31,11 +31,11 @@ public class AccountController
         String username = uNameTextField.getText();
         String password = pWordField.getText();
 
-        DataManager.userList = DataManager.loadUsers();
+        UserDataManager.userList = UserDataManager.loadUsers();
 
         User placeholder = new User(firstName, lastName, username, password);
 
-        DataManager.saveUser(placeholder);
+        UserDataManager.saveUser(placeholder);
 
         FXMLLoader fxmlLoader = new FXMLLoader(MealMotiveApplication.class.getResource("account-menu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 450);

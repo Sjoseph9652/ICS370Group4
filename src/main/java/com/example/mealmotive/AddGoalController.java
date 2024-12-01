@@ -19,11 +19,11 @@ public class AddGoalController
     {
         int calorie = Integer.parseInt(targetCalorieTextField.getText());
 
-        DataManager.goalList = DataManager.loadGoals();
+        GoalDataManager.goalList = GoalDataManager.loadGoals();
 
         Goal placeholder = new Goal(calorie, LoginController.currentUser);
 
-        DataManager.saveGoal(placeholder);
+        GoalDataManager.saveGoal(placeholder);
 
         FXMLLoader fxmlLoader = new FXMLLoader(MealMotiveApplication.class.getResource("main-menu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 450);

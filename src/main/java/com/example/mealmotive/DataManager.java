@@ -14,12 +14,6 @@ public class DataManager
     private static String mealFile = "meal.json";
     public static ArrayList<Meal> mealList = new ArrayList<>();
 
-    private static String userFile = "user.json";
-    public static ArrayList<User>userList = new ArrayList<>();
-
-    private static String goalFile = "goals.json";
-    public static ArrayList<Goal>goalList = new ArrayList<>();
-
     //private static String mealSuggestionFile = "mealSuggestion.json";
     public static ArrayList<MealSuggestions> MealSuggestionList = new ArrayList<>();
 
@@ -69,86 +63,6 @@ public class DataManager
             gson.toJson(mealList, fw);
             fw.close();
         } catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-    }
-
-    public static ArrayList<User> loadUsers()
-    {
-        try(FileReader fr = new FileReader(userFile))
-        {
-            Type listType = new TypeToken<ArrayList<User>>() {}.getType();
-            ArrayList<User> list = gson.fromJson(fr, listType);
-            if(list != null)
-            {
-                return list;
-            } else
-            {
-                return new ArrayList<>();
-            }
-        } catch (IOException e)
-        {
-            return new ArrayList<>();
-        }
-    }
-
-    public static void saveUser(User user)
-    {
-        try
-        {
-            FileWriter fw = new FileWriter(userFile);
-            userList.add(user);
-            gson.toJson(DataManager.userList, fw);
-            fw.close();
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-    }
-
-    public static ArrayList<Goal>loadGoals()
-    {
-        try(FileReader fr = new FileReader(goalFile))
-        {
-            Type listType = new TypeToken<ArrayList<Goal>>() {}.getType();
-            ArrayList<Goal> list = gson.fromJson(fr, listType);
-            ArrayList<Goal> userGoals = new ArrayList<>();
-
-            if(list == null)
-            {
-                return new ArrayList<>();
-            }
-
-            for(Goal i : list)
-            {
-                if(i.getUsername() != null && i.getUsername().equals(LoginController.currentUser))
-                {
-                    userGoals.add(i);
-                    if (userGoals.size() > 1)
-                    {
-                        userGoals.remove(0);
-                    }
-                }
-            }
-            return userGoals;
-
-        } catch (IOException e)
-        {
-            return new ArrayList<>();
-        }
-    }
-
-    public static void saveGoal(Goal goal)
-    {
-        try
-        {
-            FileWriter fw = new FileWriter(goalFile);
-            goalList.add(goal);
-            gson.toJson(DataManager.goalList, fw);
-            fw.close();
-        }
-        catch(IOException e)
         {
             e.printStackTrace();
         }

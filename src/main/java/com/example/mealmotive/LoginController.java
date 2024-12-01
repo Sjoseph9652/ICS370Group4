@@ -29,10 +29,10 @@ public class LoginController
         System.out.println(username);
         System.out.println(password);
 
-        DataManager.userList = DataManager.loadUsers();
-        //System.out.println(DataManager.userList);
+        UserDataManager.userList = UserDataManager.loadUsers();
+        //System.out.println(UserDataManager.userList);
 
-        for (User i : DataManager.userList)
+        for (User i : UserDataManager.userList)
         {
             if(i.getUsername().equals(username) && i.getPassword().equals(password))
             {

@@ -103,10 +103,10 @@ public class MealSuggestions {
     public static String CalCompare() {
         String HealthMessage = "";
         StringBuilder mealSuggestions = new StringBuilder();
-        DataManager.goalList = DataManager.loadGoals();
+        GoalDataManager.goalList = GoalDataManager.loadGoals();
 
         Goal g = null;
-        for (Goal i : DataManager.goalList)
+        for (Goal i : GoalDataManager.goalList)
         {
             if (i.getUsername().equals(LoginController.currentUser))
             {
